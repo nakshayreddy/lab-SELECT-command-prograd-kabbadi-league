@@ -6,7 +6,7 @@ SELECT * FROM TEAM;
 SELECT NAME FROM TEAM ORDER BY NAME;
 
 -- 2. **Write a query to display the player details whose name starts with a letter `S` and who do not belong to the country 'South Africa'. Display the records sorted in descending order based on player name.**
-SELECT NAME FROM PLAYER WHERE NAME LIKE 'S%' AND COUNTRY!='South Africa' ORDER BY DESC;
+SELECT NAME FROM PLAYER WHERE NAME LIKE 'S%' AND COUNTRY!='South Africa' ORDER BY NAME DESC;
 -- 3. **Write a query to display the event number and the seconds taken for each event. Display the records sorted in ascending order based on event number.**
 SELECT EVENT_NO,CLOCK_IN_SECONDS FROM EVENT;
 SELECT * FROM EVENT ORDER BY EVENT_NO ASC;
@@ -15,11 +15,11 @@ SELECT EVENT_NUMBER FROM EVENTS WHERE RAID_POINTS+DEFENDING_POINTS>=3 ORDER BY E
 
 -- 5. **Write a query to display the name of all the players who belong to the country 
 --India or Iran. Display the records sorted in ascending order based on player name.**
-SELECT PLAYERS FROM COUNTRY=INDIAN || COUNTRY=IRAN ORDER BY NAME DESC;
+SELECT NAME FROM PLAYERS WHERE COUNTRY='IRAN' ORDER BY NAME DESC;
 
 -- 6. **Write a query to display the name of all the players who does not belong to the country India and Iran.
 --Display the records sorted in ascending order based on player name.**
-SELECT PLAYERS FROM COUNTRY!=INDIAN || COUNTRY!=IRAN ORDER BY NAME DESC;
+SELECT NAME FROM PLAYERS WHERE  COUNTRY!=IRAN ORDER BY NAME DESC;
 
 -- 7. **Write a query to display the names of all the skills that start with `Defend`. Display the records sorted in ascending order based on skill name.**
 SELECT NAME FROM SKILL WHERE NAME LIKE 'DEFEND%' ORDER BY NAME ASC;
@@ -65,7 +65,7 @@ SELECT COACH FROM TEAM WHERE NAME='IRAN';
 
 -- 18. **Write a query to display the event number and the defence points of `Fazel Atrachali`
 --in each event. Display the records sorted in ascending order based on event number.**
-SELECT EVENT_NO FROM EVENT WHERE DEFENDING_POINTS IN (SELECT ID FROME PLAYER WHERE NAME=`Fazel Atrachali`)ORDER BY EVENT_NO ASC;
+
 -- 19. **Write a query to display the names of the Winning teams in the month of March 2020.
 Display the records sorted in ascending order based on team name.**
 SELECT NAME FROM PLAYER 
