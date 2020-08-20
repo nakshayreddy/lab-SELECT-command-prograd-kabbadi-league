@@ -46,17 +46,15 @@ IN(SELECT FIRST_INNINGS_ID FROM GAME WHERE GAME_DATE='26/JAN/2020') ORDER BY EVE
 
 -- 13. **Write a query to display the name of the winner team in the game played on `2020-03-09`.
 --Display the records sorted in ascending order based on team name.**
-SELECT NAME FROM TEAM WHERE ID IN(SELECT WINNER_TEAM_ID  FROM OUTCOME WHERE ID IN
-(SELECT ID FROM GAME WHERE GAME_DATE='09/MAR/2020')) ORDER BY ID ASC;
+
 
 -- 14. **Write a query to display the names of players who were the player of the match in t
 --he game played on 2020-03-09'. Display the records sorted in ascending order based on player name.**
-SELECT NAME FROM PLAYERS WHERE ID IN(SELECT PLAYER_OF_MATCH
-FROM OUTCOME WHERE SKILL_ID IN(SELECT ID FROM GAME WHERE GAME_DATE='09/MAR/2020')) ORDER BY ID DESC;
+
 
 -- 15. **Write a query to display the names of players who are All rounders. 
 --Display the records sorted in ascending order based on player name.**
-SELECT NAME FROM PLAYERS WHERE SKILL_ID IN(SELECT NAME FROM SKILL WHERE NAME='ALL ROUNDERS')ORDER BY NAME ASC;
+
 
 -- 16. **Write a query to display the venue names for all the games that were played on `2020-03-09`.
 --Display the records sorted in ascending order based on venue name.**
@@ -70,8 +68,8 @@ SELECT COACH FROM TEAM WHERE NAME='IRAN';
 SELECT EVENT_NO FROM EVENT WHERE DEFENDING_POINTS IN (SELECT ID FROME PLAYER WHERE NAME=`Fazel Atrachali`)ORDER BY EVENT_NO ASC;
 -- 19. **Write a query to display the names of the Winning teams in the month of March 2020.
 Display the records sorted in ascending order based on team name.**
-SELECT NAME FROM TEAM 
-WHERE ID IN(SELECT WINNING_TEAM_ID FROM OUTCOME WHERE ID IN(SELECT ID FROM GAME WHERE GAME_DATE='01/MAR/2020')) ORDER BY ASC;
+SELECT NAME FROM PLAYER 
+WHERE ID IN(SELECT WINNER_TEAM_ID FROM OUTCOME WHERE ID IN(SELECT ID FROM GAME WHERE GAME_DATE='01/MAR/2020')) ORDER BY NAME ASC;
 -- 20. **Write a query to display the names of players who were the player of the match in
 --the games held in March 2020. Display the records sorted in ascending order based on player name.**
 SELECT NAME FROM GAME,PLAYERS,OUTCOME WHERE GAME_DATE BETWEEN TO_DATE ('01-MAR-2020', 'DD-MM-YYYY') AND '31-MAR-2020' ORDER BY PLAYERNAME;
